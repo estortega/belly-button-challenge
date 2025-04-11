@@ -78,18 +78,18 @@ function buildCharts(sample) {
     };
 
     // Render the Bar Chart
-    Plotly.newPlot("bar", barData, barLayout); // <- You forgot the layout in original!
+    Plotly.newPlot("bar", barData, barLayout);
   });
 }
 
 // Function to run on page load
 function init() {
-  let selector = d3.select("#selDataset");
+  
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
 
     // Get the names field
     let sampleNames = data.names;
-
+    let selector = d3.select("#selDataset");
     // Use the list of sample names to populate the select options
     sampleNames.forEach((name) => {
       selector.append("option").text(name).property("value", name);
